@@ -1,0 +1,54 @@
+$base_vars : (
+  color-primary : #000,
+  color-secondary :#000000,
+  color-default : #ffffff,
+  color-light : #ffffff,
+  color-border : #d9d9d9,
+  color-text : #000000,
+  darkbg-color-link : #000000,
+  color-link:#C53D1C,
+  font-family-heading : unquote("'Manrope', serif"),
+  font-family-base : unquote("'Manrope', serif")
+);
+
+@if variable-exists(user_base_vars) {
+  $base_vars : map-merge($base_vars,$user_base_vars);
+}
+
+$default_vars: (
+
+  // TYPOGRAPHY VARIABLES
+  font-size-text:16px,
+
+  // HEADING
+  font-size-heading-h1 : 38px,
+  font-size-heading-h2 : 34px,
+  font-size-heading-h3 : 30px,
+  font-size-heading-h4 : 26px,
+  font-size-heading-h5 : 22px,
+  font-size-heading-h6 : 18px,
+
+  // SITE NAME
+    font-family-site-name : map-get($base_vars,'font-family-heading'),
+
+    size-search-icon:24px,
+    
+    color-contact-info : map-get($base_vars, 'color-secondary'),
+    color-contact-info-rgba : convertHexToRgb(map-get($base_vars, 'color-secondary')),
+    font-size-contact-info : 13px,
+    font-family-contact-info : map-get($base_vars, 'font-family-base'),
+    font-transform-contact-info : none,
+    font-weight-contact-info : normal,
+    font-line-height-contact-info : 18px,
+    font-letter-spacing-contact-info : normal,
+
+    darkbg-color-contact-info : RGBA(convertHexToRgb(map-get($base_vars, 'color-default')),0.8),
+    spacing-header-padding-top:19px,
+  spacing-header-padding-bottom:19px,
+    spacing-topbar-padding-top:12px,
+  spacing-topbar-padding-bottom:12px
+);
+
+@if variable-exists(user_default_vars) {
+  $default_vars : map-merge($default_vars,$user_default_vars);
+}
