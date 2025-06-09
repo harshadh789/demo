@@ -5,7 +5,7 @@
 
 @mixin respond-to($media) {
   @if $media ==smalldevice {
-    @media all and(min-width: 768px) {
+    @media all and (min-width: 768px) {
       @content;
     }
   }
